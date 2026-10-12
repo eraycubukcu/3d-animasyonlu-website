@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hyundai i20 WRC 2017 — 3D Keşif</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <canvas id="scene"></canvas>
+
+    <div id="loader">
+      <div class="loader-inner">
+        <span class="loader-label">Model yükleniyor</span>
+        <div class="loader-bar"><div id="loader-fill"></div></div>
+        <span id="loader-pct">0%</span>
+      </div>
+    </div>
+
+    <header class="topbar">
+      <a class="brand" href="#hero">i20<span>WRC</span></a>
+      <nav id="chapters"></nav>
+      <span class="year">2017</span>
+    </header>
+
+    <div id="hotspots"></div>
+
+    <aside id="hud">
+      <div class="hud-index"><span id="hud-num">01</span>/<span id="hud-total">08</span></div>
+      <div class="hud-track"><div id="hud-fill"></div></div>
+    </aside>
+
+    <main id="content">
+      <section class="chapter" id="hero" data-shot="hero">
+        <div class="panel panel-hero">
+          <p class="eyebrow">FIA Dünya Ralli Şampiyonası</p>
+          <h1>Hyundai<br /><em>i20 WRC</em></h1>
+          <p class="lead">Aşağı kaydır — kamera aracın etrafında dolaşıp her detaya yaklaşsın.</p>
+          <div class="scroll-cue"><span></span></div>
+        </div>
+      </section>
+
+      <section class="chapter" id="front" data-shot="front">
+        <div class="panel right">
+          <p class="eyebrow">01 · Ön yüz</p>
+          <h2>LED far grubu</h2>
+          <p>Gece etaplarında yolu aydınlatan çift far ünitesi. Bu bölüme geldiğinde farlar yanar.</p>
+          <ul class="specs">
+            <li><b>4</b><span>Ana far</span></li>
+            <li><b>2</b><span>Sinyal</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="chapter" id="wheel" data-shot="wheel">
+        <div class="panel left">
+          <p class="eyebrow">02 · Tekerlek</p>
+          <h2>Jant, disk ve kaliper</h2>
+          <p>18 inç asfalt jantı, havalandırmalı fren diski ve kırmızı kaliper. Kaydırdıkça tekerlek döner.</p>
+          <ul class="specs">
+            <li><b>370</b><span>mm disk</span></li>
+            <li><b>4</b><span>pistonlu kaliper</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="chapter" id="side" data-shot="side">
+        <div class="panel right">
+          <p class="eyebrow">03 · Profil</p>
+          <h2>Geniş gövde</h2>
+          <p>2017 kuralları ile 55 mm genişleyen gövde, büyütülmüş çamurluklar ve agresif yan etekler.</p>
+          <ul class="specs">
+            <li><b>1875</b><span>mm genişlik</span></li>
+            <li><b>4100</b><span>mm uzunluk</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="chapter" id="cockpit" data-shot="cockpit">
+        <div class="panel left">
+          <p class="eyebrow">04 · Kokpit</p>
+          <h2>Sürücü koltuğu</h2>
+          <p>Direksiyon, vites kulakçıkları ve gösterge ekranı. Ekran ve devir LED'leri kodla canlandırıldı.</p>
+          <ul class="specs">
+            <li><b>380</b><span>beygir</span></li>
+            <li><b>6</b><span>ileri vites</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="chapter" id="wing" data-shot="wing">
+        <div class="panel right">
+          <p class="eyebrow">05 · Aerodinamik</p>
+          <h2>Arka kanat</h2>
+          <p>Yüksek hızlı virajlarda arka aksı yere bastıran devasa kanat ve yan plakalar.</p>
+        </div>
+      </section>
+
+      <section class="chapter" id="rear" data-shot="rear">
+        <div class="panel left">
+          <p class="eyebrow">06 · Arka</p>
+          <h2>Egzoz ve stoplar</h2>
+          <p>1.6 litre turbo motorun yan çıkışlı egzozu. Bu bölümde stop lambaları yanar.</p>
+        </div>
+      </section>
+
+      <section class="chapter" id="explore" data-shot="explore">
+        <div class="panel center">
+          <p class="eyebrow">07 · Serbest mod</p>
+          <h2>Kendin keşfet</h2>
+          <p>Sürükleyerek döndür, tekerlekle yakınlaş. Aracın herhangi bir parçasına <b>çift tıkla</b> — kamera oraya odaklansın.</p>
+          <button id="reset-view" class="btn">Görünümü sıfırla</button>
+          <p class="credit">
+            Model: <a href="https://sketchfab.com/3d-models/wrc-hyundai-i20-2017-wwwvecarzcom-7cd9d2fd1c8c45b0af71fecc54375685" target="_blank" rel="noopener">"WRC Hyundai i20 2017 | www.vecarz.com"</a>
+            — <a href="https://sketchfab.com/heynic" target="_blank" rel="noopener">vecarz</a>,
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <div id="focus-label"></div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
